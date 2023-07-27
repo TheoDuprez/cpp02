@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/20 14:09:46 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/21 07:14:06 by tduprez          ###   ########lyon.fr   */
+/*   Created: 2023/07/26 15:04:44 by tduprez           #+#    #+#             */
+/*   Updated: 2023/07/26 17:41:29 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "../includes/Fixed.hpp"
+
+const int Fixed::_bitsFractionnal = 8;
 
 Fixed::Fixed(void): _fixeValue(0)
 {
@@ -18,7 +20,7 @@ Fixed::Fixed(void): _fixeValue(0)
 	return ;
 }
 
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed& obj)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
@@ -27,7 +29,7 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destuctor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
@@ -38,14 +40,15 @@ Fixed&	Fixed::operator=(const Fixed& cpy)
 	return (*this);
 }
 
-int	Fixed::getRawBits(void) const
+int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixeValue);
 }
 
-void	Fixed::setRawBits(const int raw)
+void	Fixed::setRawBits(int const raw)
 {
 	this->_fixeValue = raw;
 	return ;
 }
+
