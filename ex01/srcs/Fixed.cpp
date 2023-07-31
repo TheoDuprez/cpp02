@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:04:44 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/31 13:36:44 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 15:20:31 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,6 @@ Fixed::Fixed(void): _fixeValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 	return ;
-}
-
-Fixed::Fixed(const Fixed& obj)
-{
-	std::cout << "Copy constructor called" << std::endl;
-	*this = obj;
-	return ;
-
 }
 
 Fixed::Fixed(const int i)
@@ -40,17 +32,18 @@ Fixed::Fixed(const float f)
 	return ;
 }
 
+Fixed::Fixed(const Fixed& obj)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = obj;
+	return ;
+
+}
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 	return ;
-}
-
-Fixed&	Fixed::operator=(const Fixed& cpy)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixeValue = cpy.getRawBits();
-	return (*this);
 }
 
 int		Fixed::getRawBits(void) const
@@ -75,13 +68,15 @@ float	Fixed::toFloat(void) const
 	return ((float)this->_fixeValue / (1 << this->_bitsFractionnal));
 }
 
+Fixed&	Fixed::operator=(const Fixed& cpy)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_fixeValue = cpy.getRawBits();
+	return (*this);
+}
+
 std::ostream&	operator<<(std::ostream& out, const Fixed& obj)
 {
 	out << obj.toFloat();
 	return (out);
-}
-
-void	printFixe(const int i)
-{
-	std::cout << (i >> 8) << "." << (i & 0xFF) << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:51:38 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/30 13:17:02 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 16:06:59 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ public:
 	Fixed				operator*(const Fixed& rhs) const;
 	Fixed				operator/(const Fixed& rhs) const;
 
+	static Fixed		min(Fixed& obj1, Fixed& obj2);
+	static Fixed		min(const Fixed& obj1, const Fixed& obj2);
+	static Fixed		max(Fixed& obj1, Fixed& obj2);
 	static Fixed		max(const Fixed& obj1, const Fixed& obj2);
 	int					toInt(void) const;
 	float				toFloat(void) const;
