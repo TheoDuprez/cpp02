@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:04:44 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/26 19:40:32 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 12:47:08 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,43 @@ Fixed::~Fixed(void)
 	return ;
 }
 
-Fixed&	Fixed::operator=(const Fixed& cpy)
+Fixed&	Fixed::operator=(const Fixed& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixeValue = cpy.getRawBits();
+	this->_fixeValue = rhs.getRawBits();
 	return (*this);
 }
+
+bool	Fixed::operator>(const Fixed& rhs)
+{
+	return (this->_fixeValue > rhs._fixeValue);
+}
+
+bool	Fixed::operator>=(const Fixed& rhs)
+{
+	return (this->_fixeValue >= rhs._fixeValue);
+}
+
+bool	Fixed::operator<(const Fixed& rhs)
+{
+	return (this->_fixeValue < rhs._fixeValue);
+}
+
+bool	Fixed::operator<=(const Fixed& rhs)
+{
+	return (this->_fixeValue <= rhs._fixeValue);
+}
+
+bool	Fixed::operator==(const Fixed& rhs)
+{
+	return (this->_fixeValue == rhs._fixeValue);
+}
+
+bool	Fixed::operator!=(const Fixed& rhs)
+{
+	return (this->_fixeValue != rhs._fixeValue);
+}
+
 
 int		Fixed::getRawBits(void) const
 {
@@ -78,6 +109,60 @@ float	Fixed::toFloat(void) const
 {
 	return ((float)this->_fixeValue / (1 << this->_bitsFractionnal));
 }
+
+Fixed&	Fixed::operator++(void)
+{
+	(this->_fixeValue)++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp(*this);
+	this->_fixeValue++;
+	return (temp);
+}
+
+Fixed&	Fixed::operator--(void)
+{
+	(this->_fixeValue)--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp(*this);
+	this->_fixeValue--;
+	return (temp);
+}
+
+Fixed				Fixed::operator+(const Fixed& rhs) const
+{
+	return Fixed(this->toFloat() + rhs.toFloat());
+}
+
+Fixed				Fixed::operator-(const Fixed& rhs) const
+{
+	return Fixed(this->toFloat() - rhs.toFloat());
+}
+
+Fixed				Fixed::operator*(const Fixed& rhs) const
+{
+	return Fixed(this->toFloat() * rhs.toFloat());
+}
+
+Fixed				Fixed::operator/(const Fixed& rhs) const
+{
+	return Fixed(this->toFloat() / rhs.toFloat());
+}
+
+Fixed				Fixed::max(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.getRawBits() < obj2.getRawBits())
+		return (obj2);
+	return (obj1);
+}
+
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& obj)
 {

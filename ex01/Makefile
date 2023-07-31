@@ -2,7 +2,7 @@
 
 NAME =			utilsFixed
 
-CC =			g++
+CC =			c++
 
 CFLAGS =		-Wall -Werror -Wextra -std=c++98
 
@@ -30,7 +30,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	echo "$(GREEN)utilsFixed successfully compiled !$(WHITE)"
 
-./srcs/%.o: ./srcs/%.cpp $(HEADERS)/Harl.hpp
+./srcs/%.o: ./srcs/%.cpp $(HEADERS)/Fixed.hpp
 	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
 clean:
@@ -45,6 +45,6 @@ re:
 	make -s fclean
 	make -s all
 
-.SILENT:
+# .SILENT:
 
 .PHONY: all clean fclean re

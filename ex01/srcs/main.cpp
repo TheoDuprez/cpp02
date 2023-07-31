@@ -6,10 +6,11 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:05:18 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/26 19:30:11 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 13:31:10 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../includes/Fixed.hpp"
 
 int main( void ) {
@@ -20,6 +21,7 @@ int main( void ) {
 
 	a = Fixed( 1234.4321f );
 
+	printFixe(c.getRawBits());
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;

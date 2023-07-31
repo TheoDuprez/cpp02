@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:51:38 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/26 19:38:53 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 13:30:28 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,4 @@ public:
 };
 
 std::ostream&		operator<<(std::ostream& out, const Fixed& obj);
+void				printFixe(const int i);

@@ -2,7 +2,7 @@
 
 NAME =			firstCanon
 
-CC =			g++
+CC =			c++
 
 CFLAGS =		-Wall -Werror -Wextra -std=c++98
 
@@ -30,7 +30,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	echo "$(GREEN)firstCanon successfully compiled !$(WHITE)"
 
-./srcs/%.o: ./srcs/%.cpp $(HEADERS)/Harl.hpp
+./srcs/%.o: ./srcs/%.cpp $(HEADERS)/Fixed.hpp
 	$(CC) $(CFLAGS) -I$(HEADERS) -c $< -o $@
 
 clean:

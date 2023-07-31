@@ -6,7 +6,7 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:04:44 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/26 17:41:29 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 12:59:05 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ Fixed::~Fixed(void)
 	return ;
 }
 
-Fixed&	Fixed::operator=(const Fixed& cpy)
+Fixed&	Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixeValue = cpy.getRawBits();
+	this->_fixeValue = obj.getRawBits();
 	return (*this);
 }
 

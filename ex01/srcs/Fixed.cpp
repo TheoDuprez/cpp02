@@ -6,15 +6,11 @@
 /*   By: tduprez <tduprez@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:04:44 by tduprez           #+#    #+#             */
-/*   Updated: 2023/07/26 19:40:32 by tduprez          ###   ########lyon.fr   */
+/*   Updated: 2023/07/31 13:36:44 by tduprez          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Fixed.hpp"
-
-// Pour recuperer la valeur a virgule fixe de 10 il faut le multiplier par 2^8, soit 10 * 256, ou le bitshift << 8.
-// Pourquoi ? Car on imagine comme ceci : 10 est le nombre entier, 1010 en binaire. Il a huit 0 apres la virgule, donc en bitshiftant vers la gauche on obtient :
-// 101000000000 qui correspond au nombre decimal 2560
 
 const int Fixed::_bitsFractionnal = 8;
 
@@ -83,4 +79,9 @@ std::ostream&	operator<<(std::ostream& out, const Fixed& obj)
 {
 	out << obj.toFloat();
 	return (out);
+}
+
+void	printFixe(const int i)
+{
+	std::cout << (i >> 8) << "." << (i & 0xFF) << std::endl;
 }
